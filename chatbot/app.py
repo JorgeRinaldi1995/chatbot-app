@@ -34,7 +34,9 @@ def search():
             'products': products_list,
         })
     else:
-        return jsonify({'message': 'Desculpe, eu não encontrei o que você esta procurando :('})
+        return jsonify({
+            'greeting': 'Desculpe, eu não encontrei o que você esta procurando :(',
+            'products': []})
 
 if __name__ == "__main__":
     app.run(debug=True)
