@@ -24,11 +24,17 @@ def search():
         return jsonify({'error': 'Search term not provided'})
 
     results = search_product_by_name_or_description(search_term)
+    
+    greeting_message = "Claro, aqui esta o que você procura:"
+
     if results:
         products_list = [{'name': product[1], 'description': product[2]} for product in results]
-        return jsonify({'products': products_list})
+        return jsonify({
+            'greeting': greeting_message,
+            'products': products_list,
+        })
     else:
-        return jsonify({'message': 'No products found matching that search term'})
+        return jsonify({'message': 'Desculpe, eu não encontrei o que você esta procurando :('})
 
 if __name__ == "__main__":
     app.run(debug=True)
