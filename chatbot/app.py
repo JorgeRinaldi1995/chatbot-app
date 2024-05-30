@@ -28,7 +28,7 @@ def search():
     greeting_message = "Claro, aqui esta o que você procura:"
 
     if results:
-        products_list = [{'name': product[1], 'description': product[2]} for product in results]
+        products_list = [{'name': product[1], 'description': product[2], 'image': product[3]} for product in results]
         return jsonify({
             'greeting': greeting_message,
             'products': products_list,
